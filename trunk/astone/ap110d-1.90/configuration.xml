@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<packageFile>
+    <info>
+        <company>Realtek Semiconductor Corp.</company>
+        <description>This image file contains 2 Mars packages. One is for AVHDD on NOR and the other is for AVHDD on NAND.</description>
+        <version>0.0.1</version>
+        <releaseDate>06/18/10 16:42</releaseDate>
+        <signature>MARS AVHDD on NOR or NAND</signature>
+    </info>
+    <installerAP>
+        <fileName>install_a</fileName>
+    </installerAP>
+    <package>
+        <info>
+            <description>This is Mars AVHDD on NOR</description>
+            <version>N/A</version>
+        </info>
+        <flash>
+            <image type="linuxKernel">
+                <fileName>package1/vmlinux.develop.avhdd.mars.bin.lzma</fileName>
+                <targetAddress>0x80100000</targetAddress>
+                <version>SVN:</version>
+            </image>
+            <image type="audioKernel">
+                <fileName>package1/bluecore.audio.lzma</fileName>
+                <targetAddress>0x81b00000</targetAddress>
+                <version>N/A</version>
+            </image>
+            <image type="videoKernel">
+                <fileName>package1/bluecore.video.lzma</fileName>
+                <targetAddress>0x81d80000</targetAddress>
+                <version>N/A</version>
+            </image>
+            <image type="squash">
+                <fileName>package1/squashfs1.img</fileName>
+                <mountPoint>/</mountPoint>
+            </image>
+            <image type="jffs2">
+                <fileName>package1/usr.local.etc.tar.bz2</fileName>
+                <sizeBytesMin>0x50000</sizeBytesMin>
+                <mountPoint>/usr/local/etc</mountPoint>
+            </image>
+        </flash>
+    </package>
+    <installerAP>
+        <fileName>install_a</fileName>
+    </installerAP>
+    <package>
+        <info>
+            <description>This is Mars AVHDD on NAND</description>
+            <version>N/A</version>
+        </info>
+        <nand>
+            <image type="linuxKernel">
+                <fileName>package2/vmlinux.develop.avhdd.mars.nand.bin</fileName>
+                <targetAddress>0x80100000</targetAddress>
+                <version>SVN:</version>
+            </image>
+            <image type="audioKernel">
+                <fileName>package2/bluecore.audio</fileName>
+                <targetAddress>0x81b00000</targetAddress>
+                <version>N/A</version>
+            </image>
+            <image type="videoKernel">
+                <fileName>package2/video_firmware.bin</fileName>
+                <targetAddress>0x81d80000</targetAddress>
+                <version>N/A</version>
+            </image>
+            <image type="squash">
+                <fileName>package2/squashfs1.img</fileName>
+                <mountPoint>/</mountPoint>
+            </image>
+            <image type="yaffs2">
+                <fileName>package2/usr.local.etc.tar.bz2</fileName>
+                <mountPoint>/usr/local/etc</mountPoint>
+                <sizeBytesMin>0x3C00000</sizeBytesMin>
+            </image>
+        </nand>
+    </package>
+</packageFile>
