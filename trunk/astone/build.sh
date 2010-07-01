@@ -46,15 +46,12 @@ echo "##Copying relevant files to staging directory"
 cp -a ./ap110d-1.90/* ./staging/
 echo "##Copying done!"
 
+echo "##Remove .svn files."
+find ./staging/ -name ".svn" -exec rm -rf {} \;
+echo "##.svn files removed! "No such file or directory" messages may be safely ignored."
+
 echo "##Attempting to squash squashfs1 directory"
 cd ./staging/package1/
-if [ -d .svn ]; then
-  rm -rf .svn
-fi
-
-if [ -d ../package2/.svn ]; then
-  rm -rf ../package2/.svn
-fi
 
 ../../tools/mksquashfs ./squashfs1 squashfs1.img
 echo "##squashing done!"
