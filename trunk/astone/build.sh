@@ -26,7 +26,7 @@ if [ ! -n "`ls -A ./staging`" ]
   then
   echo "##Cleaning not necessary since staging directory is empty."
 else
-rm -r ./staging/*
+rm -rf ./staging/*
 fi
 echo "##Cleaning done!"
 ;;
@@ -38,7 +38,7 @@ if [ ! -n "`ls -A ./staging`" ]
   then
   echo "##Cleaning not necessary since staging directory is empty."
 else
-  rm -r ./staging/*
+  rm -rf ./staging/*
 fi
 echo "##Cleaning done!"
 
@@ -48,6 +48,14 @@ echo "##Copying done!"
 
 echo "##Attempting to squash squashfs1 directory"
 cd ./staging/package1/
+if [ -d .svn ]; then
+  rm -rf .svn
+fi
+
+if [ -d ../package2/.svn ]; then
+  rm -rf ../package2/.svn
+fi
+
 ../../tools/mksquashfs ./squashfs1 squashfs1.img
 echo "##squashing done!"
 
@@ -61,8 +69,8 @@ echo "##user.local.etc.tar.bz2 done!"
 
 echo "##Removing redundant files."
 cd ../..
-rm -r ./package1/squashfs1
-rm -r ./package1/usr.local.etc
+rm -rf ./package1/squashfs1
+rm -rf ./package1/usr.local.etc
 echo "##Redundant files removed!"
 
 if [ -e ../FINAL-IMAGE/install.img ]
