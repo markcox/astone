@@ -6,6 +6,7 @@
 ## media player or make further improvements, and of
 ## course share it as it is GPL.
 ## Written by playdude
+## Have fun hacking!
 
 case $1 in 
 
